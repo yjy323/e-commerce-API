@@ -30,4 +30,14 @@ public class OrderItem {
   private Long price;
 
   private Long count;
+
+  protected OrderItem() {
+  }
+
+  private OrderItem(Order order, Item item, Long price, Long count) {
+    this.order = order;
+    this.item = item;
+    this.price = price;
+    this.count = count;
+  }
 }

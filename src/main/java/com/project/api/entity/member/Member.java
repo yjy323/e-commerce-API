@@ -58,6 +58,8 @@ public class Member {
     this.email = email;
     this.password = password;
     this.phoneNumber = phoneNumber;
+
+    // 기본값
     this.status = MemberStatus.ACTIVE;
     this.joinDate = LocalDateTime.now(ZoneOffset.UTC);
     this.deleteDate = null;

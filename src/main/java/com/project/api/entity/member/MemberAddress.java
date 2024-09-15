@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import lombok.Getter;
 
 @Entity
@@ -40,6 +41,9 @@ public class MemberAddress {
 
   private LocalDateTime addDate;
 
+  /**
+   * 생성자
+   */
   protected MemberAddress() {
   }
 
@@ -55,7 +59,19 @@ public class MemberAddress {
     this.recipientName = recipientName;
     this.recipientPhoneNumber = recipientPhoneNumber;
     this.request = request;
+
+    // 기본값
     this.isDefault = false;
-    this.addDate = LocalDateTime.now();
+    this.addDate = LocalDateTime.now(ZoneOffset.UTC);
+  }
+
+  public MemberAddress createMemberAddress(Member member,
+      String postcode,
+      Address address,
+      String recipientName,
+      String recipientPhoneNumber,
+      String request) {
+    return new MemberAddress(member, postcode, address, recipientName, recipientPhoneNumber,
+        request);
   }
 }

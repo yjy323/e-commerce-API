@@ -14,6 +14,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 import lombok.Getter;
 
@@ -43,4 +44,31 @@ public class Order {
   private OrderStatus status;
 
   private LocalDateTime orderDate;
+
+  /**
+   * 생성자
+   */
+  protected Order() {
+  }
+
+  private Order(Member member,
+      List<OrderItem> orderItems,
+      Delivery delivery,
+      Long totalPrice) {
+    this.member = member;
+    this.orderItems = orderItems;
+    this.delivery = delivery;
+    this.totalPrice = totalPrice;
+
+    // 기본값
+    this.status = OrderStatus.ORDER;
+    this.orderDate = LocalDateTime.now(ZoneOffset.UTC);
+  }
+
+  private Order createOrder(Member member,
+      List<OrderItem> orderItems,
+      Delivery delivery,
+      Long totalPrice) {
+    return new Order(member, orderItems, delivery, totalPrice);
+  }
 }

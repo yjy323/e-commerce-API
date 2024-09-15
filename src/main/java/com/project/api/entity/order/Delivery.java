@@ -36,4 +36,17 @@ public class Delivery {
   private LocalDateTime startDate;
 
   private LocalDateTime endDate;
+
+  protected Delivery() {
+  }
+
+  private Delivery(Order order, MemberAddress memberAddress) {
+    this.order = order;
+    this.memberAddress = memberAddress;
+
+    // 기본값
+    this.status = DeliveryStatus.DELIVERY;
+    this.startDate = null;
+    this.endDate = null;
+  }
 }

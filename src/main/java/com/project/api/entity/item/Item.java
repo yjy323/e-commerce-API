@@ -80,6 +80,8 @@ public class Item {
     this.price = price;
     this.salePrice = this.price;
     this.quantity = quantity;
+
+    // 기본값
     this.status = ItemStatus.SALES;
     this.createDate = LocalDateTime.now(ZoneOffset.UTC);
   }
