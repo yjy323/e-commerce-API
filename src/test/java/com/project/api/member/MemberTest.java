@@ -3,7 +3,7 @@ package com.project.api.member;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.project.api.entity.member.Member;
-import com.project.api.repository.MemberRepository;
+import com.project.api.repository.member.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
